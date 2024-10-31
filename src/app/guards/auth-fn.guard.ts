@@ -2,14 +2,16 @@ import { CanActivateFn } from "@angular/router";
 import { inject } from "@angular/core";
 import { Router } from '@angular/router';
 import { TokenService } from "../services/token.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 export const authGuardFn: CanActivateFn = () => {
-  const tokenService = inject(TokenService);
-  const routerService = inject(Router);
 
-  const token = tokenService.getToken();
+  const _tokenService = inject(TokenService);
+  const _routerService = inject(Router);
+
+  const token = _tokenService.getToken();
   if (!token) {
-    return routerService.createUrlTree(['/auth/login']);
+    return _routerService.createUrlTree(['/auth/login']);
   }
   return true;
 }

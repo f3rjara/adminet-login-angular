@@ -9,7 +9,11 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { 
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations()
   ]

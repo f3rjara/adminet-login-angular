@@ -1,6 +1,7 @@
 <mat-sidenav-container class="h-full">
   <mat-sidenav #drawer class="w-60" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    
     <mat-list *ngIf="user">
       <mat-list-item>
         <mat-icon matListItemIcon>account_circle</mat-icon>
@@ -9,6 +10,7 @@
       </mat-list-item>
       <mat-divider></mat-divider>
     </mat-list>
+
     <mat-nav-list>
       <div mat-subheader>Admin</div>
       <a mat-list-item routerLink="/admin/dashboard">
@@ -34,6 +36,7 @@
         Logout
       </a>
     </mat-nav-list>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
